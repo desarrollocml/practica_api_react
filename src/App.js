@@ -12,8 +12,13 @@ function App() {
   const updateQuote = async ()=>{
     const url = "https://www.breakingbadapi.com/api/quote/random"
     const res = await fetch(url);
-    const newQuote = await res.json();
-    //console.log(newQuote)
+    const [newQuote] = await res.json();
+    console.log(`--> `,newQuote)
+
+    setQuote({
+      text:newQuote.quote,
+      author:newQuote.author,
+    })
     
   }
 
